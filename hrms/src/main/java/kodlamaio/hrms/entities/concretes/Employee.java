@@ -1,20 +1,23 @@
 package kodlamaio.hrms.entities.concretes;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = ("employees"))
-@EqualsAndHashCode(callSuper = false)
-public class Employee extends User {
+@Table(name = "employees")
+@AllArgsConstructor
+@NoArgsConstructor
+public class Employee {
 	@Id
 	@Column(name = "userId")
 	private int userId;
@@ -28,13 +31,9 @@ public class Employee extends User {
 	@Column(name = "email")
 	private String email;
 
-	public Employee(int id, Date addedDate, Date removedDate, String password, boolean isMailActivated,
-			boolean isActive, int userId, String firstName, String lastName, String email) {
-		super(id, addedDate, removedDate, password, isMailActivated, isActive);
-		this.userId = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-	}
+	@OneToOne
+	@MapsId
+	@JoinColumn(name = "userId")
+	private User user;
 
 }
