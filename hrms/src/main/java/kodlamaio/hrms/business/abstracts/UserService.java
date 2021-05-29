@@ -2,8 +2,26 @@ package kodlamaio.hrms.business.abstracts;
 
 import java.util.List;
 
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.User;
 
-public interface UserService {
-	List<User> getAll();
+public interface UserService
+{
+	DataResult<User> getByEmail(String email);
+
+	DataResult<User> getById(int id);
+
+	DataResult<List<User>> getAll(); // Admin
+
+	DataResult<List<User>> getAllActiveUsers();
+
+	DataResult<List<User>> getAllNoMailActivatedActiveUsers();
+
+	DataResult<List<User>> getAllDeactiveUsers();
+
+	Result add(User user);
+
+	Result delete(User user);
+
 }

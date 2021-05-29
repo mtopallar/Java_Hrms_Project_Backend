@@ -19,29 +19,27 @@ import lombok.NoArgsConstructor;
 @Table(name = "taskmasters")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Taskmaster {
+public class Taskmaster
+{
 
 	@Id
-	@Column(name = "userId")
+	@Column(name = "user_id")
 	private int userId;
 
-	@Column(name = "companyName")
+	@Column(name = "company_name")
 	private String companyName;
 
-	@Column(name = "companyWebSite")
+	@Column(name = "company_web_site")
 	private String companyWebSite;
 
-	@Column(name = "companyEmail")
-	private String companyEmail;
-
-	@Column(name = "phoneNumber")
+	@Column(name = "phone_number")
 	private String phoneNumber;
 
-	@Column(name = "activatedByEmployee")
+	@Column(name = "activated_by_employee")
 	private boolean activatedByEmployee;
 
 	@OneToOne
 	@MapsId
-	@JoinColumn(name = "userId")
+	@JoinColumn(name = "user_id")
 	private User user;
 }

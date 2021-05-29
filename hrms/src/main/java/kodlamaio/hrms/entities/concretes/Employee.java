@@ -17,23 +17,21 @@ import lombok.NoArgsConstructor;
 @Table(name = "employees")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee {
+public class Employee
+{
 	@Id
-	@Column(name = "userId")
+	@Column(name = "user_id")
 	private int userId;
 
-	@Column(name = "firstName")
+	@Column(name = "first_name")
 	private String firstName;
 
-	@Column(name = "lastName")
+	@Column(name = "last_name")
 	private String lastName;
-
-	@Column(name = "email")
-	private String email;
 
 	@OneToOne
 	@MapsId
-	@JoinColumn(name = "userId")
+	@JoinColumn(name = "user_id")
 	private User user;
 
 }

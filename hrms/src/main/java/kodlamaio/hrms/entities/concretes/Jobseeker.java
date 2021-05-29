@@ -17,30 +17,28 @@ import lombok.NoArgsConstructor;
 @Table(name = "jobseekers")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Jobseeker {
+public class Jobseeker
+{
 
 	@Id
-	@Column(name = "userId")
+	@Column(name = "user_id")
 	private int userId;
 
-	@Column(name = "firstName")
+	@Column(name = "first_name")
 	private String firstName;
 
-	@Column(name = "lastName")
+	@Column(name = "last_name")
 	private String lastName;
 
-	@Column(name = "identityNumber")
+	@Column(name = "identity_number")
 	private String identityNumber;
 
-	@Column(name = "yearOfBirth")
+	@Column(name = "year_of_birth")
 	private int yearOfBirth;
-
-	@Column(name = "email")
-	private String email;
 
 	@OneToOne
 	@MapsId
-	@JoinColumn(name = "userId")
+	@JoinColumn(name = "user_id")
 	private User user;
 
 }

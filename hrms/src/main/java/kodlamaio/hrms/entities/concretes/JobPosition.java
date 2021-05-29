@@ -1,43 +1,40 @@
 package kodlamaio.hrms.entities.concretes;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = "jobPositions")
-public class JobPosition {
-
+@Table(name = "job_positions")
+@AllArgsConstructor
+@NoArgsConstructor
+public class JobPosition
+{
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private int id;
 
 	@Column(name = "name")
 	private String name;
 
-	@Column(name = "addedDate")
-	private Date addedDate;
+	@Column(name = "added_date")
+	private LocalDate addedDate;
 
-	@Column(name = "removedDate")
-	private Date removedDate;
+	@Column(name = "removed_date")
+	private LocalDate removedDate;
 
-	@Column(name = "isActive")
+	@Column(name = "is_active")
 	private boolean isActive;
 
-	public JobPosition(int id, String name, Date addedDate, Date removedDate, boolean isActive) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.addedDate = addedDate;
-		this.removedDate = removedDate;
-		this.isActive = isActive;
-	}
 }

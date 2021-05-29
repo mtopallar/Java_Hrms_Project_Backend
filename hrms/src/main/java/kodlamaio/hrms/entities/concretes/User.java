@@ -1,6 +1,6 @@
 package kodlamaio.hrms.entities.concretes;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -21,25 +21,29 @@ import lombok.NoArgsConstructor;
 @Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class User
+{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "addedDate")
-	private Date addedDate;
+	@Column(name = "added_date")
+	private LocalDate addedDate;
 
-	@Column(name = "removedDate")
-	private Date removedDate;
+	@Column(name = "removed_date", nullable = true)
+	private LocalDate removedDate;
+
+	@Column(name = "email")
+	private String email;
 
 	@Column(name = "password")
 	private String password;
 
-	@Column(name = "isMailActivated")
+	@Column(name = "is_mail_activated")
 	private boolean isMailActivated;
 
-	@Column(name = "isActive")
+	@Column(name = "is_active")
 	private boolean isActive;
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
