@@ -47,7 +47,7 @@ public class UserManager implements UserService
 	public DataResult<List<User>> getAll()
 	{
 
-		return new SuccessDataResult<List<User>>(this.userDao.getAll(), Messages.getAllUserSuccessfully);
+		return new SuccessDataResult<List<User>>(this.userDao.findAll(), Messages.getAllUserSuccessfully);
 	}
 
 	@Override

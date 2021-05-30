@@ -4,7 +4,7 @@ import kodlamaio.hrms.entities.concretes.Jobseeker;
 
 public interface FakeMernisService
 {
-	public boolean verify(Jobseeker jobseeker);
+	boolean verify(Jobseeker jobseeker);
 
 	// Long nationalityId, String firstName, String lastname, int yearOfBirth
 }

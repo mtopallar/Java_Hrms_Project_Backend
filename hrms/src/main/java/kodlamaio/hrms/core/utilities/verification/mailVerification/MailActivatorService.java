@@ -5,5 +5,5 @@ import kodlamaio.hrms.entities.concretes.User;
 
 public interface MailActivatorService
 {
-	public DataResult<User> sendActivationMail(User user);
+	DataResult<User> sendActivationMail(User user);
 }

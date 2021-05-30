@@ -11,12 +11,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@Table(name = "job_positions")
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class JobPosition
+@Table(name = "cities")
+public class City
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

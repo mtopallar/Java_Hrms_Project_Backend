@@ -1,6 +1,5 @@
 package kodlamaio.hrms.business.concretes;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +43,7 @@ public class JobPositionManager implements JobPositionService
 		{
 			return result;
 		}
-		jobPosition.setAddedDate(LocalDate.now());
+
 		jobPosition.setActive(true);
 		this.jobPositionDao.save(jobPosition);
 		return new SuccessResult(Messages.positionAddedSuccessfully);
