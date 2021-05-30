@@ -1,10 +1,13 @@
 package kodlamaio.hrms.entities.concretes;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -42,4 +45,7 @@ public class Taskmaster
 	@MapsId
 	@JoinColumn(name = "user_id")
 	private User user;
+
+	@OneToMany(mappedBy = "taskmaster")
+	private Set<JobAdvert> jobAdverts;
 }

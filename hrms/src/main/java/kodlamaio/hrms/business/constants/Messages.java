@@ -33,6 +33,9 @@ public class Messages
 	public static String taskmasterActivatedByEmployeeSuccessfully = "İşveren kaydı HRMS personeli tarafından başarıyla onaylanmıştır.";
 	public static String taskMasterDeletedSuccessfully = "Kullanıcı kaydı (taskmaster) başarıyla silinmiştir.";
 
+	// Employee
+
+	public static String getAllEmployeeSuccessfully = "Tüm iş arayanlar başarıyla listelendi.";
 	// Job Positions
 
 	public static String getAllActivePositions = "Tüm ilanlar başarıyla listelenmiştir.";
@@ -41,4 +44,18 @@ public class Messages
 	// Fake Mail Activator
 
 	public static String mailActivatedSuccessfully = "Mail aktivasyonu başarıyla tamamlanmıştır.";
+
+	// Cities
+
+	public static String getAllCitiesSuccessfully = "Tüm şehirler başarıyla listelendi.";
+	public static String cityAddedSuccessfully = "Şehir başarıyla eklendi.";
+	public static String getAllActiveCitiesSuccessfully = "Tüm aktif şehirler başarıyla listelendi.";
+
+	// JobAdvert
+
+	public static String getAllActiveInDtoFormatSuccessfully = "Tüm aktif ilanlar formatlı biçimde getirildi.";
+	public static String getAllActiveJobAdvertsByDeadlineDateAscSuccessfully = "Aktif ilanların tamamı son başvuru tarihine göre ters sıralamalı olarak başarıyla listelendi.";
+	public static String getAllJobAdvertsByTaskmasterIdSuccessfully = "Aktif ilanlar firmaya göre başarıyla listelendi.";
+	public static String jobAdvertAddedSuccessfully = "İş ilanı başarıyla kaydedildi.";
+	public static String jobAdvertDeletedSuccessfully = "İş ilanı başarıyla silnmiştir.";
 }

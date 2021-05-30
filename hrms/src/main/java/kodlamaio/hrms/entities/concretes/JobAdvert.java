@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -25,14 +27,14 @@ public class JobAdvert
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "taskmaster_id")
-	private int taskmasterId;
+	// @Column(name = "taskmaster_id")
+	// private int taskmasterId;
 
-	@Column(name = "job_position_id")
-	private int jobPositionId;
+	// @Column(name = "job_position_id")
+	// private int jobPositionId;
 
-	@Column(name = "city_id")
-	private int cityId;
+	// @Column(name = "city_id")
+	// private int cityId;
 
 	@Column(name = "position_details")
 	private String positionDetails;
@@ -57,5 +59,17 @@ public class JobAdvert
 
 	@Column(name = "is_active")
 	private boolean isActive;
+
+	@ManyToOne
+	@JoinColumn(name = "city_id", nullable = false)
+	private City city;
+
+	@ManyToOne
+	@JoinColumn(name = "job_position_id", nullable = false)
+	private JobPosition jobPosition;
+
+	@ManyToOne
+	@JoinColumn(name = "taskmaster_id", nullable = false)
+	private Taskmaster taskmaster;
 
 }
