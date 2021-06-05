@@ -28,22 +28,22 @@ public class JobAdvertsController
 		this.jobadvertService = advertService;
 	}
 
-	@GetMapping("/getallactives")
+	@GetMapping("/getAllActives")
 	public DataResult<List<JobAdvertToShowDto>> getAllActive()
 	{
 		return this.jobadvertService.getAllActives();
 	}
 
-	@GetMapping("/getallactivesbydeadlinedatedesc")
+	@GetMapping("/getAllActivesByDeadlineDateDesc")
 	public DataResult<List<JobAdvertToShowDto>> getAllActivesByDeadlineDateDesc()
 	{
 		return this.jobadvertService.getAllActivesByDeadlineDateDesc();
 	}
 
 	@GetMapping("/getAllByTaskmasterId")
-	public DataResult<List<JobAdvertToShowDto>> getAllByTaskmasterId(int taskmasterId)
+	public DataResult<List<JobAdvertToShowDto>> getAllActivesByTaskmasterId(int taskmasterId)
 	{
-		return this.jobadvertService.getAllByTaskmasterId(taskmasterId);
+		return this.jobadvertService.getAllActivesByTaskmasterId(taskmasterId);
 	}
 
 	@PostMapping("/add")

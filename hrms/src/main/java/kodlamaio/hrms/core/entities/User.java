@@ -1,4 +1,4 @@
-package kodlamaio.hrms.entities.concretes;
+package kodlamaio.hrms.core.entities;
 
 import java.time.LocalDate;
 
@@ -11,7 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
+import kodlamaio.hrms.entities.concretes.Employee;
+import kodlamaio.hrms.entities.concretes.Jobseeker;
+import kodlamaio.hrms.entities.concretes.Taskmaster;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +30,7 @@ import lombok.NoArgsConstructor;
 public class User
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 
@@ -35,9 +41,14 @@ public class User
 	private LocalDate removedDate;
 
 	@Column(name = "email")
+	@Email
+	@NotBlank
+	@NotNull
 	private String email;
 
 	@Column(name = "password")
+	@NotBlank
+	@NotNull
 	private String password;
 
 	@Column(name = "is_mail_activated")

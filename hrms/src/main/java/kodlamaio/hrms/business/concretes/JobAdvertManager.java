@@ -1,11 +1,11 @@
 package kodlamaio.hrms.business.concretes;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
+//import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.JobAdvertService;
@@ -30,40 +30,32 @@ public class JobAdvertManager implements JobAdvertService
 		this.jobAdvertDao = jobAdvertDao;
 	}
 
-	@Override
-	public DataResult<List<JobAdvertToShowDto>> getAllActives()
-	{
-		var result = this.jobAdvertDao.getByIsActive(true);
-		return new SuccessDataResult<List<JobAdvertToShowDto>>(this.entityToDtoConverter(result),
-				Messages.getAllActiveInDtoFormatSuccessfully);
-	}
-
-	@Override
-	public DataResult<List<JobAdvertToShowDto>> getAllActivesByDeadlineDateDesc()
-	{
-		Sort sort = Sort.by(Sort.Direction.DESC, "deadlineDate");
-		var result = this.jobAdvertDao.findAll(sort);
-		List<JobAdvert> activeJobAdverts = new ArrayList<JobAdvert>();
-		for (JobAdvert jobAdvert : result)
-		{
-			if (jobAdvert.isActive())
-			{
-				activeJobAdverts.add(jobAdvert);
-			}
-		}
-
-		return new SuccessDataResult<List<JobAdvertToShowDto>>(this.entityToDtoConverter(activeJobAdverts),
-				Messages.getAllActiveJobAdvertsByDeadlineDateAscSuccessfully);
-
-	}
-
-	@Override
-	public DataResult<List<JobAdvertToShowDto>> getAllByTaskmasterId(int taskmasterId)
-	{
-		var result = this.jobAdvertDao.getByTaskmaster_UserId(taskmasterId);
-		return new SuccessDataResult<List<JobAdvertToShowDto>>(this.entityToDtoConverter(result),
-				Messages.getAllJobAdvertsByTaskmasterIdSuccessfully);
-	}
+	/*
+	 * @Override public DataResult<List<JobAdvertToShowDto>> getAllActives() { var
+	 * result = this.jobAdvertDao.getByIsActive(true); return new
+	 * SuccessDataResult<List<JobAdvertToShowDto>>(this.entityToDtoConverter(result)
+	 * , ,); }
+	 * 
+	 * @Override public DataResult<List<JobAdvertToShowDto>>
+	 * getAllActivesByDeadlineDateDesc() { Sort sort = Sort.by(Sort.Direction.DESC,
+	 * "deadlineDate"); var result = this.jobAdvertDao.findAll(sort);
+	 * List<JobAdvert> activeJobAdverts = new ArrayList<JobAdvert>(); for (JobAdvert
+	 * jobAdvert : result) { if (jobAdvert.isActive()) {
+	 * activeJobAdverts.add(jobAdvert); } }
+	 * 
+	 * return new
+	 * SuccessDataResult<List<JobAdvertToShowDto>>(this.entityToDtoConverter(
+	 * activeJobAdverts),
+	 * Messages.getAllActiveJobAdvertsByDeadlineDateAscSuccessfully);
+	 * 
+	 * }
+	 * 
+	 * @Override public DataResult<List<JobAdvertToShowDto>>
+	 * getAllByTaskmasterId(int taskmasterId) { var result =
+	 * this.jobAdvertDao.getByTaskmaster_UserId(taskmasterId); return new
+	 * SuccessDataResult<List<JobAdvertToShowDto>>(this.entityToDtoConverter(result)
+	 * , Messages.getAllJobAdvertsByTaskmasterIdSuccessfully); }
+	 */
 
 	@Override
 	public Result add(JobAdvert jobAdvert)
@@ -84,23 +76,46 @@ public class JobAdvertManager implements JobAdvertService
 		return new SuccessResult(Messages.jobAdvertDeletedSuccessfully);
 	}
 
-	private List<JobAdvertToShowDto> entityToDtoConverter(List<JobAdvert> jobAdverts)
+	/*
+	 * private List<JobAdvertToShowDto> entityToDtoConverter(List<JobAdvert>
+	 * jobAdverts) { List<JobAdvertToShowDto> jobAdvertToShowDtos = new
+	 * ArrayList<JobAdvertToShowDto>();
+	 * 
+	 * for (JobAdvert jobAdvert : jobAdverts) { JobAdvertToShowDto dto = new
+	 * JobAdvertToShowDto();
+	 * dto.setCompanyName(jobAdvert.getTaskmaster().getCompanyName());
+	 * dto.setJobPositionName(jobAdvert.getJobPosition().getName());
+	 * dto.setWorkerNeeded(jobAdvert.getWorkerNeeded());
+	 * dto.setAddedDate(jobAdvert.getAddedDate());
+	 * dto.setDeadlineDate(jobAdvert.getDeadlineDate());
+	 * 
+	 * jobAdvertToShowDtos.add(dto); }
+	 * 
+	 * return jobAdvertToShowDtos; }
+	 */
+
+	@Override
+	public DataResult<List<JobAdvertToShowDto>> getAllActives()
 	{
-		List<JobAdvertToShowDto> jobAdvertToShowDtos = new ArrayList<JobAdvertToShowDto>();
+		return new SuccessDataResult<List<JobAdvertToShowDto>>(
+				this.jobAdvertDao.getAllActiveStatueJobAdvertWithPositionNameAndCompanyDetails(true),
+				Messages.getAllActiveInDtoFormatSuccessfully);
+	}
 
-		for (JobAdvert jobAdvert : jobAdverts)
-		{
-			JobAdvertToShowDto dto = new JobAdvertToShowDto();
-			dto.setCompanyName(jobAdvert.getTaskmaster().getCompanyName());
-			dto.setJobPositionName(jobAdvert.getJobPosition().getName());
-			dto.setWorkerNeeded(jobAdvert.getWorkerNeeded());
-			dto.setAddedDate(jobAdvert.getAddedDate());
-			dto.setDeadlineDate(jobAdvert.getDeadlineDate());
+	@Override
+	public DataResult<List<JobAdvertToShowDto>> getAllActivesByDeadlineDateDesc()
+	{
+		return new SuccessDataResult<List<JobAdvertToShowDto>>(this.jobAdvertDao
+				.getAllActiveJobAdvertWithPositionNameAndCompanyDetailsByDeadlineDateDesc(true),
+				Messages.getAllActiveJobAdvertsByDeadlineDateAscSuccessfully);
+	}
 
-			jobAdvertToShowDtos.add(dto);
-		}
-
-		return jobAdvertToShowDtos;
+	@Override
+	public DataResult<List<JobAdvertToShowDto>> getAllActivesByTaskmasterId(int taskmasterId)
+	{
+		return new SuccessDataResult<List<JobAdvertToShowDto>>(this.jobAdvertDao
+				.getAllActiveJobAdvertWithPositionNameAndCompanyDetailsByTaskmasterId(taskmasterId, true),
+				Messages.getAllJobAdvertsByTaskmasterIdSuccessfully);
 	}
 
 }

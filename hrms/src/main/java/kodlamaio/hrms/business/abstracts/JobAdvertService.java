@@ -17,7 +17,7 @@ public interface JobAdvertService
 
 	DataResult<List<JobAdvertToShowDto>> getAllActivesByDeadlineDateDesc();
 
-	DataResult<List<JobAdvertToShowDto>> getAllByTaskmasterId(int taskmasterId);
+	DataResult<List<JobAdvertToShowDto>> getAllActivesByTaskmasterId(int taskmasterId);
 
 	Result add(JobAdvert jobAdvert);
 

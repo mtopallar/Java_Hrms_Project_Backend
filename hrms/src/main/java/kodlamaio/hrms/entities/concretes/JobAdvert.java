@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +25,7 @@ import lombok.NoArgsConstructor;
 public class JobAdvert
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 
@@ -37,6 +39,8 @@ public class JobAdvert
 	// private int cityId;
 
 	@Column(name = "position_details")
+	@NotBlank
+	@NotNull
 	private String positionDetails;
 
 	@Column(name = "salary_min", nullable = true)
@@ -46,6 +50,8 @@ public class JobAdvert
 	private double salaryMax;
 
 	@Column(name = "worker_needed")
+	@NotBlank
+	@NotNull
 	private short workerNeeded;
 
 	@Column(name = "added_date")
@@ -62,14 +68,20 @@ public class JobAdvert
 
 	@ManyToOne
 	@JoinColumn(name = "city_id", nullable = false)
+	@NotBlank
+	@NotNull
 	private City city;
 
 	@ManyToOne
 	@JoinColumn(name = "job_position_id", nullable = false)
+	@NotBlank
+	@NotNull
 	private JobPosition jobPosition;
 
 	@ManyToOne
 	@JoinColumn(name = "taskmaster_id", nullable = false)
+	@NotBlank
+	@NotNull
 	private Taskmaster taskmaster;
 
 }

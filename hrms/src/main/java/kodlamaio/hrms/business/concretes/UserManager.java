@@ -1,5 +1,6 @@
 package kodlamaio.hrms.business.concretes;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,14 +8,15 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.UserService;
 import kodlamaio.hrms.business.constants.Messages;
+import kodlamaio.hrms.core.dataAccess.UserDao;
+import kodlamaio.hrms.core.entities.User;
 import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.ErrorDataResult;
 import kodlamaio.hrms.core.utilities.results.ErrorResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.core.utilities.verification.mailVerification.MailActivatorService;
-import kodlamaio.hrms.dataAccess.abstracts.UserDao;
-import kodlamaio.hrms.entities.concretes.User;
 
 @Service
 public class UserManager implements UserService
@@ -34,6 +36,13 @@ public class UserManager implements UserService
 	@Override
 	public DataResult<User> getByEmail(String email)
 	{
+		var result = this.userDao.getByEmail(email);
+
+		if (result == null)
+		{
+			return new ErrorDataResult<User>("Kullanıcı bulunamadı");
+		}
+
 		return new SuccessDataResult<User>(this.userDao.getByEmail(email), Messages.getUserByMailSuccessfully);
 	}
 
@@ -84,6 +93,7 @@ public class UserManager implements UserService
 		}
 		if (mailActivated.isSuccess())
 		{
+			mailActivated.getData().setAddedDate(LocalDate.now());
 			this.userDao.save(mailActivated.getData());
 			return new SuccessResult(Messages.userSavedSuccessfully);
 		}
@@ -96,6 +106,7 @@ public class UserManager implements UserService
 	{
 		var userToDelete = this.getById(user.getId()).getData();
 		userToDelete.setActive(false);
+		userToDelete.setRemovedDate(LocalDate.now());
 		this.userDao.save(userToDelete);
 		return new SuccessResult(Messages.userDeletedSuccessfully);
 	}

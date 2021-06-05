@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class JobAdvertToShowDto
 {
+	private int jobAdvertId;
 	private String companyName;
 	private String jobPositionName;
 	private short workerNeeded;
