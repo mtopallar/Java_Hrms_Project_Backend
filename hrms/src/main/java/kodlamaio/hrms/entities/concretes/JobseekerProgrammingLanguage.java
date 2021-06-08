@@ -1,14 +1,14 @@
 package kodlamaio.hrms.entities.concretes;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -21,18 +21,25 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "cities")
-public class City
+@Table(name = "jobseeker_programming_languages")
+public class JobseekerProgrammingLanguage
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "name")
+	// private int jobseekerId;
+	// private int jobseekerCvId;
+	// private int programmingLanguageId;
+
+	@Column(name = "experience_detail")
+	private String experienceDetail;
+
+	@Column(name = "experience_point")
 	@NotBlank
 	@NotNull
-	private String name;
+	private char experiencePoint;
 
 	@Column(name = "added_date")
 	private LocalDate addedDate;
@@ -43,6 +50,21 @@ public class City
 	@Column(name = "is_active")
 	private boolean isActive;
 
-	@OneToMany(mappedBy = "city")
-	private Set<JobAdvert> jobAdverts;
+	@ManyToOne
+	@JoinColumn(name = "jobseeker_id", nullable = false)
+	@NotBlank
+	@NotNull
+	private Jobseeker jobseeker;
+
+	@ManyToOne
+	@JoinColumn(name = "jobseeker_cv_id", nullable = false)
+	@NotBlank
+	@NotNull
+	private JobseekerCv jobseekerCv;
+
+	@ManyToOne
+	@JoinColumn(name = "programming_language_id", nullable = false)
+	@NotBlank
+	@NotNull
+	private ProgrammingLanguage programmingLanguage;
 }

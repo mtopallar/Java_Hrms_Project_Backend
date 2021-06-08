@@ -1,6 +1,5 @@
 package kodlamaio.hrms.entities.concretes;
 
-import java.time.LocalDate;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -10,8 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,8 +18,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "cities")
-public class City
+@Table(name = "universities")
+public class University
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,19 +27,11 @@ public class City
 	private int id;
 
 	@Column(name = "name")
-	@NotBlank
-	@NotNull
 	private String name;
-
-	@Column(name = "added_date")
-	private LocalDate addedDate;
-
-	@Column(name = "removed_date")
-	private LocalDate removedDate;
 
 	@Column(name = "is_active")
 	private boolean isActive;
 
-	@OneToMany(mappedBy = "city")
-	private Set<JobAdvert> jobAdverts;
+	@OneToMany(mappedBy = "university")
+	private Set<JobseekerHigherEducation> jobseekerHigherEducations;
 }

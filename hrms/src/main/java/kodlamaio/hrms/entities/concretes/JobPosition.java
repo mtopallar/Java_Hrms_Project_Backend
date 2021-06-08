@@ -1,5 +1,6 @@
 package kodlamaio.hrms.entities.concretes;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -28,6 +29,12 @@ public class JobPosition
 
 	@Column(name = "name")
 	private String name;
+
+	@Column(name = "added_date")
+	private LocalDate addedDate;
+
+	@Column(name = "removed_date")
+	private LocalDate removedDate;
 
 	@Column(name = "is_active")
 	private boolean isActive;

@@ -1,5 +1,7 @@
 package kodlamaio.hrms.entities.concretes;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,35 +12,34 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import kodlamaio.hrms.core.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@Table(name = "employees")
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee
+@Table(name = "jobseeker_primary_schools")
+public class JobseekerPrimarySchool
 {
 	@Id
-	@Column(name = "user_id")
-	private int userId;
+	@Column(name = "jobseeker_education_id")
+	private int jobseekerEducationId;
 
-	@Column(name = "first_name")
+	@Column(name = "name")
 	@NotBlank
 	@NotNull
-	private String firstName;
+	private String name;
 
-	@Column(name = "last_name")
-	@NotBlank
-	@NotNull
-	private String lastName;
+	@Column(name = "end_date")
+	private LocalDate endDate;
+
+	@Column(name = "graduation_grade")
+	private String graduationGrade;
 
 	@OneToOne
 	@MapsId
-	@JoinColumn(name = "user_id")
-	private User user;
-
+	@JoinColumn(name = "jobseeker_education_id")
+	private JobseekerEducation jobseekerEducation;
 }

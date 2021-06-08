@@ -21,8 +21,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "cities")
-public class City
+@Table(name = "programming_languages")
+public class ProgrammingLanguage
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +43,6 @@ public class City
 	@Column(name = "is_active")
 	private boolean isActive;
 
-	@OneToMany(mappedBy = "city")
-	private Set<JobAdvert> jobAdverts;
+	@OneToMany(mappedBy = "programmingLanguage")
+	private Set<JobseekerProgrammingLanguage> jobseekerProgrammingLanguages;
 }
