@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -42,4 +43,15 @@ public class JobseekerPrimarySchool
 	@MapsId
 	@JoinColumn(name = "jobseeker_education_id")
 	private JobseekerEducation jobseekerEducation;
+
+	@OneToOne
+	@MapsId
+	@JoinColumn(name = "jobseeker_id", nullable = false)
+	private Jobseeker jobseeker;
+
+	@ManyToOne
+	@JoinColumn(name = "school_type_id", nullable = false)
+	@NotNull
+	@NotBlank
+	private SchoolType schoolType;
 }

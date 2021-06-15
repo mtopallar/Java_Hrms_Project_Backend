@@ -2,6 +2,7 @@ package kodlamaio.hrms.entities.concretes;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -58,8 +60,16 @@ public class Jobseeker
 	@OneToMany(mappedBy = "jobseeker")
 	private Set<JobseekerCv> jobseekerCvs;
 
+	@OneToOne(mappedBy = "jobseeker", cascade = CascadeType.ALL)
+	@PrimaryKeyJoinColumn
+	private JobseekerPrimarySchool jobseekerPrimarySchool;
+
+	@OneToOne(mappedBy = "jobseeker")
+	@PrimaryKeyJoinColumn
+	private JobseekerHighSchool jobseekerHighSchool;
+
 	@OneToMany(mappedBy = "jobseeker")
-	private Set<JobseekerEducation> jobseekerEducations;
+	private Set<JobseekerHigherEducation> jobseekerHigherEducations;
 
 	@OneToMany(mappedBy = "jobseeker")
 	private Set<JobseekerProgrammingLanguage> jobseekerProgrammingLanguages;

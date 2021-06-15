@@ -37,5 +37,11 @@ public class SchoolType
 	private boolean isActive;
 
 	@OneToMany(mappedBy = "schoolType")
-	private Set<JobseekerEducation> jobseekerEducations;
+	private Set<JobseekerPrimarySchool> jobseekerPrimarySchools;
+
+	@OneToMany(mappedBy = "schoolType")
+	private Set<JobseekerHighSchool> jobseekerHighSchools;
+
+	@OneToMany(mappedBy = "schoolType")
+	private Set<JobseekerHigherEducation> jobseekerHigherEducations;
 }

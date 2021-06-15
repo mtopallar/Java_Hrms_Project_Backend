@@ -49,18 +49,6 @@ public class JobseekerEducation
 	private boolean isActive;
 
 	@ManyToOne
-	@JoinColumn(name = "jobseeker_id", nullable = false)
-	@NotNull
-	@NotBlank
-	private Jobseeker jobseeker;
-
-	@ManyToOne
-	@JoinColumn(name = "shcool_type_id", nullable = false)
-	@NotNull
-	@NotBlank
-	private SchoolType schoolType;
-
-	@ManyToOne
 	@JoinColumn(name = "jobseeker_cv_id", nullable = false)
 	@NotBlank
 	@NotNull

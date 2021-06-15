@@ -55,4 +55,15 @@ public class JobseekerHighSchool
 	@NotBlank
 	@NotNull
 	private Department department;
+
+	@OneToOne
+	@MapsId
+	@JoinColumn(name = "jobseeker_id", nullable = false)
+	private Jobseeker jobseeker;
+
+	@ManyToOne
+	@JoinColumn(name = "school_type_id", nullable = false)
+	@NotNull
+	@NotBlank
+	private SchoolType schoolType;
 }

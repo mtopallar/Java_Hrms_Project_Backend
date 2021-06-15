@@ -65,4 +65,16 @@ public class JobseekerHigherEducation
 	@NotBlank
 	@NotNull
 	private Department department;
+
+	@ManyToOne
+	@JoinColumn(name = "jobseeker_id", nullable = false)
+	@NotNull
+	@NotBlank
+	private Jobseeker jobseeker;
+
+	@ManyToOne
+	@JoinColumn(name = "school_type_id", nullable = false)
+	@NotNull
+	@NotBlank
+	private SchoolType schoolType;
 }
