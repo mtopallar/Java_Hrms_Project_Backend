@@ -60,4 +60,3 @@ local.properties
 # Typically, this file would be tracked if it contains build/dependency configurations:
 #.project
 hrms/src/main/java/kodlamaio/hrms/core/secrets/
-hrms/src/main/java/kodlamaio/hrms/core/secrets/cloudinary/CloudinarySecrets.java
