@@ -1,13 +1,10 @@
 package kodlamaio.hrms.entities.concretes;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -36,12 +33,4 @@ public class SchoolType
 	@Column(name = "is_active")
 	private boolean isActive;
 
-	@OneToMany(mappedBy = "schoolType")
-	private Set<JobseekerPrimarySchool> jobseekerPrimarySchools;
-
-	@OneToMany(mappedBy = "schoolType")
-	private Set<JobseekerHighSchool> jobseekerHighSchools;
-
-	@OneToMany(mappedBy = "schoolType")
-	private Set<JobseekerHigherEducation> jobseekerHigherEducations;
 }

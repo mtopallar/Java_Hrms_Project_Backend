@@ -58,4 +58,35 @@ public class Messages
 	public static String getAllJobAdvertsByTaskmasterIdSuccessfully = "Aktif ilanlar firmaya göre başarıyla listelendi.";
 	public static String jobAdvertAddedSuccessfully = "İş ilanı başarıyla kaydedildi.";
 	public static String jobAdvertDeletedSuccessfully = "İş ilanı başarıyla silnmiştir.";
+
+	// Universities
+
+	public static String ActiveUniversityNotFound = "Sistemde kayıtlı aktif üniversite mevcut değildir.";
+	public static String GetAllActiveUniversitiesSuccessfully = "Sistemde kayıtlı tüm aktif üniversiteler başarıyla listelenmiştir.";
+	public static String GetUniversityByIdNotFound = "Belirtilen üniversite bulunamadı.";
+	public static String GetUniversityByIdSuccessfully = "Üniversite detayları başarıyla getirildi.";
+	public static String UniversityAddedSucccessfully = "Üniversite başarıyla kaydedildi.";
+	public static String UniversityUpdatedSuccessfully = "Üniversite başarıyla güncellendi.";
+	public static String UniversityDeletedSucccessfully = "Üniversite başarıyla silindi.";
+
+	// Departments
+
+	public static String ActiveDepartmentNotFound = "Sistemde kayıtlı aktif bölüm mevcut değildir.";
+	public static String AllActiveDepartmentsListedSuccessfully = "Tüm aktif bölümler başarıyla listelenmiştir";
+	public static String DepartmentByIdNotFound = "Belirtilen bölüm bulunamadı.";
+	public static String GetDepartmentByIdSuccessfully = "Bölüm detayları başarıyla getirildi.";
+	public static String DepartmentAddedSuccessfully = "Bölüm başarıyla kaydedildi.";
+	public static String DepartmentUpdatedSuccessfully = "Bölüm başarıyla güncellenmiştir.";
+	public static String DepartmentDeletedSuccessfully = "Bölüm başarıyla silinmiştir.";
+
+	// School Types
+
+	public static String PredefinesSchoolsListedSucccessfully = "Öntanımlı okullar başarıyla listelendi.";
+	public static String ActiveSchoolTypeNotFound = "Sistemde kayıtlı aktif okul türü bulunmamaktadır.";
+	public static String GetAllActiveSchoolsSucccessfully = "Tüm aktif okul türleri başarıyla listelenmiştir.";
+	public static String SchoolTypeNotFound = "Belirtilen okul türü bbulunamadı.";
+	public static String GetSchoolTypeByIdSuccessfully = "Okul türü detayları başarıyla getirildi.";
+	public static String SchoolTypeAddedSuccessfully = "Okul türü bbaşarıyla kaydedildi.";
+	public static String SchoolTypeDeletedSuccessfully = "Okul türü başarrıyla silinmiştir.";
+
 }

@@ -4,11 +4,11 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -25,8 +25,9 @@ import lombok.NoArgsConstructor;
 public class JobseekerHigherEducation
 {
 	@Id
-	@Column(name = "jobseeker_education_id")
-	private int jobseekerEducationId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int id;
 
 	// @Column(name = "university_id")
 	// @NotNull
@@ -37,6 +38,9 @@ public class JobseekerHigherEducation
 	// @NotNull
 	// @NotBlank
 	// private int departmentId;
+
+	@Column(name = "start_date")
+	private LocalDate startDate;
 
 	@Column(name = "is_completed")
 	private boolean isCompleted;
@@ -49,10 +53,14 @@ public class JobseekerHigherEducation
 	@NotBlank
 	private String graduationGrade;
 
-	@OneToOne
-	@MapsId
-	@JoinColumn(name = "jobseeker_education_id")
-	private JobseekerEducation jobseekerEducation;
+	@Column(name = "added_date")
+	private LocalDate addedDate;
+
+	@Column(name = "removed_date")
+	private LocalDate removedDate;
+
+	@Column(name = "is_active")
+	private boolean isActive;
 
 	@ManyToOne
 	@JoinColumn(name = "university_id", nullable = false)
@@ -72,9 +80,4 @@ public class JobseekerHigherEducation
 	@NotBlank
 	private Jobseeker jobseeker;
 
-	@ManyToOne
-	@JoinColumn(name = "school_type_id", nullable = false)
-	@NotNull
-	@NotBlank
-	private SchoolType schoolType;
 }

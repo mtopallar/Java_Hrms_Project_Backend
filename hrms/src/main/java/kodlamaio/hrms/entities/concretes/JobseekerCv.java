@@ -67,9 +67,6 @@ public class JobseekerCv
 	private Jobseeker jobseeker;
 
 	@OneToMany(mappedBy = "jobseekerCv")
-	private Set<JobseekerEducation> jobseekerEducations;
-
-	@OneToMany(mappedBy = "jobseekerCv")
 	private Set<JobseekerProgrammingLanguage> jobseekerProgrammingLanguages;
 
 	@OneToMany(mappedBy = "jobseekerCv")
