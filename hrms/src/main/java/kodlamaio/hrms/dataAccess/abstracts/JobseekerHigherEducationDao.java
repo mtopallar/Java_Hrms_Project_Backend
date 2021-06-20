@@ -3,6 +3,7 @@ package kodlamaio.hrms.dataAccess.abstracts;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import kodlamaio.hrms.entities.concretes.JobseekerHigherEducation;
 
@@ -11,4 +12,7 @@ public interface JobseekerHigherEducationDao extends JpaRepository<JobseekerHigh
 	List<JobseekerHigherEducation> getByJobseekerIdAndIsActive(int JobseekerId, boolean isActive);
 
 	List<JobseekerHigherEducation> getByIsActive(boolean isActive);
+	
+	@Query("From JobseekerHigherEducation where jobseekerId=:jobseekerId and isActive=:isActive Order By endDate Desc")
+	List<JobseekerHigherEducation> getJobseekerActiveHigherEducationsSortedByEndDateDesc(int jobseekerId, boolean isActive);
 }

@@ -89,4 +89,35 @@ public class Messages
 	public static String SchoolTypeAddedSuccessfully = "Okul türü bbaşarıyla kaydedildi.";
 	public static String SchoolTypeDeletedSuccessfully = "Okul türü başarrıyla silinmiştir.";
 
+	// Primary School
+
+	public static String NoActivePrimarySchoolFoundForThisUser = "Sisteme kayıtlı ilkokulunuz bulunmamaktadır.";
+	public static String GetUsersPrimarySchoolSuccessfully = "İlkokul bilginiz başarıyla getirilmiştir.";
+	public static String NoActivePrimarySchoolFound = "Sistemde kayıtlı aktif herhangi bir ilkokul bulunmamaktadır.";
+	public static String GetAllActivePrimarySchoolsSuccessfully = "Sistemde kayıtlı tüm aktif ilkokullar başarıyla listelendi.";
+	public static String PrimarySchoolAddedSuccessfully = "İlkokul başarıyla kaydedildi.";
+	public static String PrimarySchoolUpdatedSuccessfully = "İlkokul başarıyla güncellendi.";
+	public static String PrimarySchoolDeletedSuccessfully = "İlkokul başarıyla silindi.";
+	
+	// High School
+	
+	public static String NoActiveHighSchoolFound = "Sistemde kayıtlı aktif lise bilginiz bulunmamaktadır.";
+	public static String getActiveByJobseekerIdSuccessfully = "Sistemde kayıtlı lise bilginiz başarıyla getirilmiştir.";
+	public static String GetAllActivesError = "Sistemde kayıtlı aktif lise bulunmamaktadır.";
+	public static String getAllActivesSuccessfully = "Sistemdeki tüm aktif liseler başarıyla listelendi.";
+	public static String HighSchoolAddedSuccessfully = "Lise başarıyla kaydedildi.";
+	public static String JobseekerHighSchoolUpdatedSuccessfully = "Lise bilginiz başarıyla güncellendi.";
+	public static String JobseekerHighSchoolDeletedSuccessfully = "Lise bilgisi başarıyla silindi.";
+	
+	// Higher Education Manager
+	
+	public static String GetActiveByJobseekerIdError = "Sistemde kayıtlı yüksek öğrenim bilginiz bulunmamaktadır." ;
+	public static String GetActiveByJobseekerIdSuccessfully = "Sistemde kayıtlı olan tüm yüksek öğrenim bilgileriniz başarıyla listelendi.";
+	public static String GetAllActiveHigherEducationsError = "Sistemde kayıtlı aktif yüksek öğrenim bilgisi mevcut değildir.";
+	public static String GetAllActiveHigherEducationsSuccessfully = "Sistemdeki tüm kayıtlı yüksek öğrenim kayıtları başarıyla listelenmiştir.";
+	public static String JobseekerHigherEducationSacedSuccessfully = "Yüksek öğrenim bilgisi başarıyla kaydedildi.";
+	public static String JobseekerHigherEducationUpdatedSuccessfully = "Yüksek öğrenim bilgisi başarıyla güncellenmiştir.";
+	public static String JobseekerHigherEducationDeletedSuccessfully = "Yüksek öğrenim bilgisi başarıyla silinmiştir.";
+	public static String GetAllHigherEducationsSortedSuccessfully = "Sistemdeki tüm yüksek öğrenim bilgileriniz başarıyla listelenmişitr.";
+
 }

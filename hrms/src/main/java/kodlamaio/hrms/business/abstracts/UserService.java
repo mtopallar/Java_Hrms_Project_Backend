@@ -22,6 +22,8 @@ public interface UserService
 
 	Result add(User user);
 
+	// Result add(User user, AddUserSelectorService addUserSelectorService);
+
 	Result delete(User user);
 
 	// buraya dto ları içeren işveren, iş arayan, personel paramına göre ekleme

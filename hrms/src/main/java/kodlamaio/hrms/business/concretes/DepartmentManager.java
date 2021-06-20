@@ -46,7 +46,7 @@ public class DepartmentManager implements DepartmentService
 		{
 			return new ErrorDataResult<Department>(Messages.DepartmentByIdNotFound);
 		}
-		return new SuccessDataResult<Department>(Messages.GetDepartmentByIdSuccessfully);
+		return new SuccessDataResult<Department>(result, Messages.GetDepartmentByIdSuccessfully);
 	}
 
 	@Override

@@ -36,7 +36,7 @@ public class SchoolTypeManager implements SchoolTypeService
 		{
 			return new ErrorDataResult<List<SchoolType>>(Messages.ActiveSchoolTypeNotFound);
 		}
-		return new SuccessDataResult<List<SchoolType>>(Messages.GetAllActiveSchoolsSucccessfully);
+		return new SuccessDataResult<List<SchoolType>>(result, Messages.GetAllActiveSchoolsSucccessfully);
 	}
 
 	@Override
